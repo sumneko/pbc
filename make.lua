@@ -5,7 +5,7 @@ lm.arch = 'x64'
 
 lm:import '3rd/bee.lua/make.lua'
 
-lm:shared_library 'pbc-lua' {
+lm:shared_library 'protobuf' {
     deps = {
         platform.OS == "Windows" and "lua54" or "lua",
     },
@@ -16,6 +16,9 @@ lm:shared_library 'pbc-lua' {
     includes = {
         'src',
         '.'
+    },
+    ldflags = {
+        platform.OS == "Windows" and "/EXPORT:luaopen_protobuf_c",
     },
     flags = {
         '/TP',
@@ -34,5 +37,5 @@ lm:shared_library 'pbc-lua' {
 }
 
 lm:default {
-    'pbc-lua',
+    'protobuf',
 }
