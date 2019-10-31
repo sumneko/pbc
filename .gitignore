@@ -3,6 +3,7 @@
 *.opensdf
 *.d
 *.o
+*.pdb
 Debug
 Release
 build
